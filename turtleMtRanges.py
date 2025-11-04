@@ -12,8 +12,8 @@ snow_colour = "WHITE"
 mountain_colours = ["gray", "green", "darkgreen", "black"]
 
 start_level = 5
-mountain_width = 200
-mountain_height = 150
+mountain_width = 400
+mountain_height = 300
 shrink = 0.6
 
 # Setup
