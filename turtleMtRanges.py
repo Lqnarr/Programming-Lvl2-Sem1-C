@@ -119,8 +119,6 @@ def main():
     # Start drawing mountains
     draw_mountain_range(start_level, mountain_width, mountain_height)
 
-    turtle.tracer(True)
-    t.hideturtle()
     turtle.done()
 
 
