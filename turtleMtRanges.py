@@ -1,7 +1,7 @@
 # Mountain range drawing
 # By Eric Gao, block C
 
-# Config
+# Configurations
 import turtle
 import random
 
@@ -18,6 +18,7 @@ shrink = 0.6
 
 # Setup
 screen = turtle.Screen()
+screen.title("Cool mountain range with snow on top")
 screen.setup(width=screen_width, height=screen_height)
 screen.bgcolor("skyblue")
 
