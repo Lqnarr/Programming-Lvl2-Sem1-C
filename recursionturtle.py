@@ -57,7 +57,7 @@ def draw_snowcap(base, height, color=snow_colour):
     t.end_fill()
 
 
-# ======= RECURSIVE FUNCTION =======
+# Recursions, for drawing multiple mountain ranges with different sizes and colours
 def draw_mountain_range(level, base, height):
     if level <= 0 or base < 20 or height < 20:
         return
@@ -67,9 +67,9 @@ def draw_mountain_range(level, base, height):
 
     colour = random.choice(mountain_colours)
     t.pendown()
-    draw_triangle(base, height, colour")
+    draw_triangle(base, height, colour)
 
-    # Draw snowcap
+    # Drawing the snowcap
     t.penup()
     t.forward(base / 2)
     t.left(120)
@@ -97,7 +97,7 @@ def draw_mountain_range(level, base, height):
     draw_mountain_range(level - 1, base * shrink, height * shrink)
 
 
-# ======= MAIN =======
+# Main function for calling the other functions to start drawing
 def main():
     t.penup()
     t.goto(0, -screen_height // 4)
