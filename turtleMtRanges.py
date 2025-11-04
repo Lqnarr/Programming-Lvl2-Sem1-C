@@ -28,10 +28,10 @@ t.width(2)
 turtle.tracer(False)
 
 
-# Drawing triangles
-def draw_triangle(base, height, color):
-    t.fillcolor(color)
-    t.pencolor(color)
+# Helping functions
+def draw_triangle(base, height, colour):
+    t.fillcolor(colour)
+    t.pencolor(colour)
     t.begin_fill()
     t.forward(base / 2)
     t.left(120)
@@ -43,9 +43,9 @@ def draw_triangle(base, height, color):
     t.end_fill()
 
 
-def draw_snowcap(base, height, color=snow_colour):
-    t.fillcolor(color)
-    t.pencolor(color)
+def draw_snowcap(base, height, colour=snow_colour):
+    t.fillcolor(colour)
+    t.pencolor(colour)
     t.begin_fill()
     t.forward(base * 0.1)
     t.left(120)
@@ -72,9 +72,9 @@ def draw_mountain_range(level, base, height):
     # Drawing the snowcap
     t.penup()
     t.forward(base / 2)
-    t.left(120)
+    t.left(145)
     t.forward(height)
-    t.right(120)
+    t.right(145)
     t.pendown()
     draw_snowcap(base, height)
 
