@@ -28,17 +28,22 @@ t.width(2)
 turtle.tracer(False)
 
 
-# Helping functions
 def draw_triangle(base, height, colour):
+    # Helping functions, triangle base for drawing mountains
+
     t.fillcolor(colour)
     t.pencolor(colour)
     t.begin_fill()
+
     t.forward(base / 2)
     t.left(120)
+
     t.forward(height)
     t.left(120)
+
     t.forward(height)
     t.left(120)
+
     t.forward(base / 2)
     t.end_fill()
 
@@ -61,8 +66,9 @@ def draw_snowcap(base, height, colour=snow_colour):
     t.end_fill()
 
 
-# Recursions, for drawing multiple mountain ranges with different sizes and colours
 def draw_mountain_range(level, base, height):
+    # Recursions, for drawing multiple mountain ranges with different sizes and colours
+
     if level <= 0 or base < 20 or height < 20:
         return
 
@@ -101,13 +107,15 @@ def draw_mountain_range(level, base, height):
     draw_mountain_range(level - 1, base * shrink, height * shrink)
 
 
-# Main function for calling the other functions to start drawing
 def main():
+    # Main function for calling the other functions to start drawing
+
     t.penup()
     t.goto(0, -screen_height // 4)
     t.setheading(0)
     t.pendown()
 
+    # Start drawing mountains
     draw_mountain_range(start_level, mountain_width, mountain_height)
 
     turtle.tracer(True)
