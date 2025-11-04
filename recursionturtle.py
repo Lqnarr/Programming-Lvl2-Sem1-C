@@ -1,25 +1,25 @@
-# Mountain Range - Fixed Layout
+# Mountain range drawing
+# By Eric Gao, block C
+
+# Config
 import turtle
 import random
 
-# ======= CONFIG =======
-SCREEN_WIDTH = 900
-SCREEN_HEIGHT = 600
-BACKGROUND = "skyblue"
+screen_width = 900
+screen_height = 600
 
-MOUNTAIN_COLORS = ["dimgray", "gray", "darkslategray", "slategray"]
-SNOW_COLOR = "white"
+snow_colour = "WHITE"
+mountain_colours = ["gray", "green", "darkgreen", "black"]
 
-START_LEVEL = 5
-MOUNTAIN_WIDTH = 200
-MOUNTAIN_HEIGHT = 150
-SHRINK = 0.6
-GREENCOLOR = "GREEN"
+start_level = 5
+mountain_width = 200
+mountain_height = 150
+shrink = 0.6
 
-# ======= TURTLE SETUP =======
+# Setup
 screen = turtle.Screen()
-screen.setup(width=SCREEN_WIDTH, height=SCREEN_HEIGHT)
-screen.bgcolor(BACKGROUND)
+screen.setup(width=screen_width, height=screen_height)
+screen.bgcolor("skyblue")
 
 t = turtle.Turtle()
 t.speed(0)
@@ -28,7 +28,7 @@ t.width(2)
 turtle.tracer(False)
 
 
-# ======= HELPER FUNCTIONS =======
+# Drawing triangles
 def draw_triangle(base, height, color):
     t.fillcolor(color)
     t.pencolor(color)
@@ -43,7 +43,7 @@ def draw_triangle(base, height, color):
     t.end_fill()
 
 
-def draw_snowcap(base, height, color=SNOW_COLOR):
+def draw_snowcap(base, height, color=snow_colour):
     t.fillcolor(color)
     t.pencolor(color)
     t.begin_fill()
@@ -65,9 +65,9 @@ def draw_mountain_range(level, base, height):
     start_pos = t.position()
     start_heading = t.heading()
 
-    color = random.choice(MOUNTAIN_COLORS)
+    colour = random.choice(mountain_colours)
     t.pendown()
-    draw_triangle(base, height, GREENCOLOR)
+    draw_triangle(base, height, colour")
 
     # Draw snowcap
     t.penup()
@@ -88,23 +88,23 @@ def draw_mountain_range(level, base, height):
     t.penup()
     t.goto(start_pos[0] - base * 0.5, start_pos[1])
     t.pendown()
-    draw_mountain_range(level - 1, base * SHRINK, height * SHRINK)
+    draw_mountain_range(level - 1, base * shrink, height * shrink)
 
     # Recursive: right mountain
     t.penup()
     t.goto(start_pos[0] + base * 0.5, start_pos[1])
     t.pendown()
-    draw_mountain_range(level - 1, base * SHRINK, height * SHRINK)
+    draw_mountain_range(level - 1, base * shrink, height * shrink)
 
 
 # ======= MAIN =======
 def main():
     t.penup()
-    t.goto(0, -SCREEN_HEIGHT // 4)
+    t.goto(0, -screen_height // 4)
     t.setheading(0)
     t.pendown()
 
-    draw_mountain_range(START_LEVEL, MOUNTAIN_WIDTH, MOUNTAIN_HEIGHT)
+    draw_mountain_range(start_level, mountain_width, mountain_height)
 
     turtle.tracer(True)
     t.hideturtle()
