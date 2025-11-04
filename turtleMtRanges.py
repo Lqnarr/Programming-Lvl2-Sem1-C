@@ -95,13 +95,13 @@ def draw_mountain_range(level, base, height):
     t.setheading(start_heading)
     t.pendown()
 
-    # Recursive: left mountain
+    # Recursive: mountains on the left
     t.penup()
     t.goto(start_pos[0] - base * 0.5, start_pos[1])
     t.pendown()
     draw_mountain_range(level - 1, base * shrink, height * shrink)
 
-    # Recursive: right mountain
+    # Recursive: mountains on the right
     t.penup()
     t.goto(start_pos[0] + base * 0.5, start_pos[1])
     t.pendown()
