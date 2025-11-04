@@ -16,10 +16,10 @@ mountain_width = 400
 mountain_height = 300
 shrink = 0.6
 
-# Setup
+# SETUP
 screen = turtle.Screen()
-screen.setup(width=screen_width, height=screen_height)
-screen.bgcolor("skyblue")
+screen.setup(width=screen_width, height=screen_height)  # Setup the screen
+screen.bgcolor("skyblue")  # Set the background colour
 
 t = turtle.Turtle()
 t.speed(0)
@@ -28,17 +28,21 @@ t.width(2)
 turtle.tracer(False)
 
 
-# Helping functions
+# Helping functions, drawing the triangles used for mountains
 def draw_triangle(base, height, colour):
     t.fillcolor(colour)
-    t.pencolor(colour)
+    t.pencolor(colour)  # Giving the pen a colour
     t.begin_fill()
+
     t.forward(base / 2)
     t.left(120)
+
     t.forward(height)
     t.left(120)
+
     t.forward(height)
     t.left(120)
+
     t.forward(base / 2)
     t.end_fill()
 
@@ -47,12 +51,16 @@ def draw_snowcap(base, height, colour=snow_colour):
     t.fillcolor(colour)
     t.pencolor(colour)
     t.begin_fill()
+
     t.forward(base * 0.1)
     t.left(120)
+
     t.forward(height * 0.3)
     t.left(120)
+
     t.forward(height * 0.3)
     t.left(120)
+
     t.forward(base * 0.1)
     t.end_fill()
 
@@ -72,11 +80,14 @@ def draw_mountain_range(level, base, height):
     # Drawing the snowcap
     t.penup()
     t.forward(base / 2)
+
     t.left(145)
     t.forward(height)
+
     t.right(145)
     t.pendown()
-    draw_snowcap(base, height)
+
+    draw_snowcap(base, height)  # Recursion part
 
     # Reset to base
     t.penup()
@@ -88,12 +99,14 @@ def draw_mountain_range(level, base, height):
     t.penup()
     t.goto(start_pos[0] - base * 0.5, start_pos[1])
     t.pendown()
+
     draw_mountain_range(level - 1, base * shrink, height * shrink)
 
     # Recursive: right mountain
     t.penup()
     t.goto(start_pos[0] + base * 0.5, start_pos[1])
     t.pendown()
+
     draw_mountain_range(level - 1, base * shrink, height * shrink)
 
 
