@@ -4,12 +4,9 @@
 
 # Analyse the data provided in class
 
-import csv
-
 file = open(
     "/Users/ericgao/Documents/Programming Lvl 2/Python/Data/NYC_Central_Park_weather_1869-2022.csv"
 )
-reader = csv.reader(file)
 
 rows = list(file)
 dataPoints = len(rows) - 1
